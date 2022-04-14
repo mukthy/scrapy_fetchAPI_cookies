@@ -27,24 +27,6 @@ class ScrapyFetchApiSpider(scrapy.Spider):
             )
 
     def cookies(self, response):
-        # this below Cookie works when you want to use the requests module.
-        # cookie = response.meta['crawlera_fetch']['upstream_response']['body']['custom_data']['cookies']['cookies']
-        # r = json.dumps(cookie[0])
-        # with open('resoponse.txt', 'w') as file:
-        #     file.write(str(r))
-
-        # API_URL = "http://fetch.crawlera.com:8010/fetch/v2/"
-        # API_KEY = "API-KEY"
-        # response = requests.post(API_URL, auth=(API_KEY, ''), json={
-        #     "url": "https://httpbin.org/ip",
-        #     #  "render" : False,
-        #     "script": "",
-        #     "parameters": {
-        #         #   "debug": True,
-        #         "cookies": cookie}})
-        # print(response.text)
-
-        # The below part of the snipit will work if you want to make the request to site with Scrapy JsonRequest.
         data = response.meta["crawlera_fetch"]["upstream_response"]["body"][
             "custom_data"
         ]["cookies"]["cookies"]
